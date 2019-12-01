@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  user-select: none;
+
+  table {
+    border-collapse: collapse;
+    margin: 3px;
+    display: inline-block;
+
+    td {
+      border: solid black 1px;
+    }
+  }
+
+  table.overflow {
+    border: red;
+    color: red;
+  }
+}

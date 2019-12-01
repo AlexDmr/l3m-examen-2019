@@ -1,0 +1,15 @@
+<table *ngIf = "uint as u"
+       [class.overflow] = "u.overflow"
+>
+  <tr>
+    <td *ngFor="let b of u.bits; let i = index"
+        (click) = "changeIndex(u, i, !b)"
+    >
+      {{b ? '1' : '0'}}
+    </td>
+  </tr>
+</table>
+
+===
+
+{{val}} sur {{dim}} bits ({{uint | json}})
