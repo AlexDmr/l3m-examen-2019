@@ -13,3 +13,4 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 
 
 /* MVP */
+import './app/MVP/CounterPresenter';

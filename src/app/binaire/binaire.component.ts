@@ -9,8 +9,8 @@ import {toNumber, toUINT, UINT} from '../data/definitions';
 })
 export class BinaireComponent implements OnInit {
   @Input() editable = false;
-  @Input() dim: number;
-  @Input() val: number;
+  @Input() dim = 8;
+  @Input() val = 0;
   @Output() valChange = new EventEmitter<number>();
 
   constructor() { }

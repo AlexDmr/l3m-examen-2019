@@ -1,7 +1,7 @@
 export interface UINT {
-  dim: number;
-  bits: boolean[]; // du poids fort au poids faible, dims éléments
-  overflow: boolean;
+  dim: number;       // dimension du vecteur de bits
+  bits: boolean[];   // le vecteur de bit
+  overflow: boolean; // vrai si on a cherché à représenter un nombre trop grand pour le vecteur
 }
 
 /* Renvoie la négation bit à bit de e.
