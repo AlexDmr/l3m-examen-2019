@@ -26,6 +26,3 @@ const section = document.querySelector('#MVP') as HTMLElement;
 
 const P = new CounterPresenter(section, CS);
 
-declare function getDecomposition(n: number): Promise<number[]>;
-declare function getImage(uint: UINT): Promise<ImageData>;
-declare function getDocument(images: ImageData[]): Promise<ImageData>;
