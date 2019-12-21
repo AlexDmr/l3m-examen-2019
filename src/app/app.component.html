@@ -1,7 +1,22 @@
-<app-binaire [(val)]="a" [dim]="8" [editable]="true"></app-binaire>
-<app-binaire [(val)]="b" [dim]="8" [editable]="true"></app-binaire>
+A = <app-binaire [(val)]="a" [dim]="dim" [editable]="true"></app-binaire>
+B = <app-binaire [(val)]="b" [dim]="dim" [editable]="true"></app-binaire>
 -----
-<app-binaire [val]="a + b" [dim]="8"></app-binaire>
+C = <app-binaire [val]="a + b" [dim]="dim"></app-binaire>
+
+-----
+
+<section>
+  <label>
+    Dimension {{dim}} <input type="range" [(ngModel)]="dim" min="0" max="16" />
+  </label>
+</section>
+
+<ol>
+  <li *ngFor="let d of dimensions">
+    <app-binaire [val]="a + b" [dim]="d"></app-binaire>
+  </li>
+</ol>
+
 
 <hr/>
 <button (click)="reset()">RESET</button>
@@ -9,16 +24,6 @@
 <button (click)="start()">START</button>
 
 <section>
-  <label>
-    Dimension {{dim}} <input type="range" [(ngModel)]="dim" min="0" max="16" />
-  </label>
+  X = <app-binaire [val]="valueObs | async"              [dim]="dim" [editable]="false"></app-binaire>
+  Y = <app-binaire [val]="maxValue - (valueObs | async)" [dim]="dim" [editable]="false"></app-binaire>
 </section>
-<app-binaire [val]="valueObs | async" [dim]="dim" [editable]="false"></app-binaire>
-<app-binaire [val]="maxValue - (valueObs | async)" [dim]="dim" (valChange)="updateY($event)" [editable]="true"></app-binaire>
------
-<ol>
-  <li *ngFor="let d of dimensions">
-    <app-binaire [val]="res | async" [dim]="d"></app-binaire>
-  </li>
-</ol>
-

@@ -10,15 +10,9 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export class AppComponent {
   a = 0;
   b = 128;
-  x = 0;
-  y = 1;
   dim = 8;
-  res = new BehaviorSubject<number>( this.y );
 
   constructor(private bs: CounterService) {
-    this.valueObs.subscribe(
-      x => this.updateX(x)
-    );
   }
 
   get dimensions(): number[] {
@@ -43,16 +37,6 @@ export class AppComponent {
 
   start() {
     this.bs.start();
-  }
-
-  updateX(v: number) {
-    this.x = v;
-    this.res.next(this.x + this.y );
-  }
-
-  updateY(v: number) {
-    this.y = v;
-    this.res.next(this.x + this.y );
   }
 
 }
