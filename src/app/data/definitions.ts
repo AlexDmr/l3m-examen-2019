@@ -25,11 +25,22 @@ export function add(a: UINT, b: UINT): UINT {
   return a.bits.reduceRight( ({bits, overflow}, v, i) => ({
       dim: a.dim,
       bits: [ overflow ? a.bits[i] && b.bits[i] : a.bits[i] || b.bits[i]
-            , ...bits],
+        , ...bits],
       overflow: overflow ? a.bits[i] || b.bits[i] : a.bits[i] && b.bits[i]
     } as UINT),
     {bits: [], overflow: false, dim: a.dim} as UINT
   );
+}
+
+/* Une version basée sur toNumber ... */
+export function add2(a: UINT, b: UINT): UINT {
+  const A = toNumber(a);
+  const B = toNumber(b);
+  if ( isNaN(A) || isNaN(B) ) {
+    return toUINT( Math.pow(2, a.dim), a.dim);
+  } else {
+    return toUINT( A + B, a.dim);
+  }
 }
 
 /* Renvoie le nombre représenté par le paramètre ui de type UINT
