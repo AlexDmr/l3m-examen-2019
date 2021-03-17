@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "examen2019"
+    }
+  },
+  "defaultProject": "examen2019",
+  "cli": {
+    "analytics": false
+  }
 }
